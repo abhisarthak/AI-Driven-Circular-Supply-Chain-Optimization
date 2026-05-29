@@ -1,199 +1,215 @@
-````markdown
 # AI-Driven Circular Supply Chain Optimization
 
 > Decision Intelligence framework for optimizing Circular Supply Chains using Machine Learning, Operations Research, Reverse Logistics, and Sustainability Analytics.
 
 ---
 
-# Overview
+## Overview
 
-Traditional supply chains operate on a linear model:
+Traditional supply chains largely follow a linear model:
 
-Take → Make → Use → Dispose
+**Take → Make → Use → Dispose**
 
-This approach leads to:
-- excessive waste generation
-- increasing carbon emissions
-- inefficient resource utilization
-- poor reverse logistics management
-- high raw material dependency
+While effective in driving production and sales, this model often results in:
 
-This project aims to build an AI-driven Decision Intelligence framework that helps industries transition from a linear supply chain to a Circular Supply Chain system.
+* Excess inventory and waste generation
+* Resource depletion
+* High carbon emissions
+* Inefficient reverse logistics
+* Increased dependence on virgin raw materials
 
-The proposed framework integrates:
-- Machine Learning
-- Multi-objective Optimization
-- Reverse Logistics
-- Operations Research
-- Sustainability Analytics
-- Industrial Decision Intelligence
+This project explores how Circular Supply Chains can transform waste into recoverable economic value through data-driven decision making.
 
-The system is designed to help industries make intelligent decisions regarding:
-- recycling
-- remanufacturing
-- reuse
-- recovery routing
-- sustainability optimization
+The long-term objective is to build a Decision Intelligence framework that integrates:
 
-while balancing:
-- operational cost
-- carbon emissions
-- recovery profit
-- resource efficiency
-- sustainability performance
+* Machine Learning
+* Operations Research
+* Multi-objective Optimization
+* Reverse Logistics
+* Sustainability Analytics
+
+to support intelligent and sustainable supply chain decisions.
 
 ---
 
-# Objectives
+## Problem Statement
 
-## Primary Objectives
+Most inventory management systems optimize profit without explicitly accounting for product recovery, reuse, recycling, or sustainability costs.
 
-- Predict product return behavior using Machine Learning
-- Optimize reverse logistics and transportation networks
-- Minimize operational cost and carbon emissions
-- Maximize recovery value and resource utilization
-- Build an intelligent decision-making system for circular manufacturing
+Circular Supply Chains introduce new challenges:
+
+* How much inventory should be produced?
+* What is the optimal trade-off between profit and sustainability?
+* How can reverse logistics be incorporated into inventory decisions?
+* How can waste be reduced while maintaining operational efficiency?
+
+This project aims to address these questions through optimization and analytics.
 
 ---
 
-# Proposed System Architecture
+## Current Implementation
+
+### Phase 1: Closed Loop Supply Chain Model
+
+Implemented:
+
+* Expected Sales Analysis
+* Expected Inventory Analysis
+* Expected Lost Sales Analysis
+* Linear Supply Chain (LSC) Profit Model
+* Closed Loop Supply Chain (CLSC) Profit Model
+* Profit Comparison Visualization
+* Supply Chain Behaviour Analysis
+
+Notebook:
 
 ```text
-Product Return Data
-        ↓
-Data Preprocessing
-        ↓
-AI Prediction Engine
-        ↓
-Decision Intelligence Layer
-        ↓
-Optimization Engine
-        ↓
-Recovery Decision
-        ↓
-Dashboard & Sustainability Analytics
-````
-
----
-
-# Core Features
-
-## Machine Learning Layer
-
-* Product return prediction
-* Recovery value estimation
-* Product condition classification
-
-## Optimization Layer
-
-* Multi-objective optimization
-* Reverse logistics optimization
-* Facility allocation optimization
-* Route optimization
-
-## Decision Intelligence Layer
-
-* Recycle vs remanufacture decisions
-* Cost-sustainability tradeoff analysis
-* Industrial recovery recommendations
-
-## Sustainability Analytics
-
-* Carbon emission tracking
-* Waste reduction analysis
-* Recovery efficiency metrics
-
----
-
-# Optimization Objective
-
-The project focuses on balancing:
-
-### Minimize
-
-* operational cost
-* transportation emissions
-* waste generation
-
-### Maximize
-
-* recovery profit
-* material recovery
-* sustainability score
-
----
-
-# Tech Stack
-
-## Programming
-
-* Python
-
-## Machine Learning
-
-* Scikit-learn
-* XGBoost
-* Pandas
-* NumPy
-
-## Optimization
-
-* CPLEX
-* OR-Tools
-* PuLP
-
-## Visualization
-
-* Power BI
-* Plotly
-* Streamlit
-
----
-
-# Repository Structure
-
-```text
-AI-Driven-Circular-Supply-Chain-Optimization/
-│
-├── data/
-├── notebooks/
-├── src/
-├── dashboard/
-├── reports/
-├── diagrams/
-└── docs/
+notebooks/
+└── 01_Closed_Loop_Supply_Chain_Model.ipynb
 ```
 
 ---
 
-# Future Scope
+## Results
 
-* Digital Twin Integration
-* IoT-enabled Product Tracking
-* Reinforcement Learning for Dynamic Routing
-* Blockchain-based Supply Chain Transparency
-* ESG and Carbon Credit Analytics
+### Supply Chain Behaviour
+
+The graph below illustrates the relationship between:
+
+* Expected Sales
+* Expected Inventory
+* Expected Lost Sales
+
+as the order quantity changes.
+
+![Supply Chain Behaviour](results/supply_chain_behaviour.png)
+
+### Linear vs Closed Loop Supply Chain Profit
+
+The graph below compares the profitability of a traditional Linear Supply Chain and a Closed Loop Supply Chain.
+
+![LSC vs CLSC Profit](results/lsc_vs_clsc_profit.png)
+
+### Key Insights
+
+* Expected sales increase with order quantity.
+* Expected lost sales decrease as inventory availability increases.
+* Excess inventory grows rapidly at higher order quantities.
+* The Closed Loop Supply Chain reaches optimal profit at a lower inventory level than the Linear Supply Chain.
+* Circularity introduces recovery and collection costs, creating a trade-off between profitability and sustainability.
 
 ---
 
-# Current Status
+## Project Roadmap
 
-Project currently in:
+### Phase 1 — Closed Loop Supply Chain Model
 
-Research & System Design Phase
+* [x] Literature Review
+* [x] Inventory Optimization Model
+* [x] Profit Analysis
+* [x] Visualization
 
-Implementation and model development will be added progressively.
+### Phase 2 — Predictive Analytics
+
+* [ ] Demand Forecasting
+* [ ] Product Return Prediction
+* [ ] Recovery Value Prediction
+
+### Phase 3 — Multi-Objective Optimization
+
+* [ ] Cost Minimization
+* [ ] Carbon Emission Minimization
+* [ ] Recovery Value Maximization
+
+### Phase 4 — Decision Intelligence Engine
+
+* [ ] Intelligent Recovery Recommendations
+* [ ] Scenario Analysis
+* [ ] Decision Support Framework
+
+### Phase 5 — Dashboard Development
+
+* [ ] Interactive Dashboard
+* [ ] Sustainability KPIs
+* [ ] Executive Decision Support
 
 ---
 
-# Research Domains
+## Repository Structure
+
+```text
+AI-Driven-Circular-Supply-Chain-Optimization/
+│
+├── README.md
+│
+├── notebooks/
+│   └── 01_Closed_Loop_Supply_Chain_Model.ipynb
+│
+├── results/
+│   ├── supply_chain_behaviour.png
+│   └── lsc_vs_clsc_profit.png
+│
+├── docs/
+│
+├── data/
+│
+└── src/
+```
+
+---
+
+## Tech Stack
+
+### Programming
+
+* Python
+
+### Data Analysis
+
+* Pandas
+* NumPy
+
+### Optimization
+
+* OR-Tools
+* PuLP
+* CPLEX (planned)
+
+### Machine Learning
+
+* Scikit-Learn
+* XGBoost (planned)
+
+### Visualization
+
+* Matplotlib
+* Plotly
+* Streamlit (planned)
+
+---
+
+## Research Areas
 
 * Circular Economy
 * Supply Chain Analytics
 * Operations Research
-* Sustainable Manufacturing
-* Decision Intelligence
-* Industrial AI
 * Reverse Logistics
+* Sustainability Analytics
+* Industrial AI
+* Decision Intelligence
+* Multi-Objective Optimization
+
+---
+
+## Future Scope
+
+Potential extensions include:
+
+* Digital Twin Supply Chains
+* Reinforcement Learning for Dynamic Decisions
+* Carbon Credit Optimization
+* IoT-enabled Product Tracking
+* ESG Performance Analytics
+* Industrial Decision Intelligence Systems
 
 ---
