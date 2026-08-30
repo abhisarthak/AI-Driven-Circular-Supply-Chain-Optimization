@@ -1,0 +1,9 @@
+Feature_Group,Importance,Importance (%)
+Customer Geography,0.46542254,46.542255
+Seller Geography,0.19884302,19.884302
+Temporal Factors,0.1431157,14.31157
+Payment,0.06823747,6.8237467
+Order Complexity,0.053356413,5.3356414
+Order Value,0.028964043,2.8964043
+Product Characteristics,0.028837398,2.8837397
+Freight & Logistics,0.013223374,1.3223374

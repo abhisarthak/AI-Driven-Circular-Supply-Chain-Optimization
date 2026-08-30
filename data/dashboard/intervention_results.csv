@@ -1,0 +1,5 @@
+Strategy,Orders Monitored,Workload (%),Late Deliveries Captured,Capture Rate (%)
+Critical Only,266,1.3786669430911165,108,6.900958466453674
+High + Critical,1657,8.588162122939774,472,30.159744408945688
+Medium + High + Critical,4498,23.312947030164818,847,54.12140575079872
+All Orders,19294,100.0,1565,100.0
