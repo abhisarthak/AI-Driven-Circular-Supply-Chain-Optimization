@@ -370,3 +370,61 @@ or
 The purpose of this analysis is not to identify one universally correct inventory policy. Instead, it shows how inventory decisions respond to changes in the assumptions behind them.
 
 This makes the framework more useful for decision-making because users can understand not only **what the recommended decision is**, but also **why that decision changes when the business situation changes**.
+
+## 📦 SKU-Level & Portfolio Analysis
+
+So far, the analysis has looked at the inventory decision for each SKU separately.
+
+However, an inventory manager is usually not responsible for only one product. The more useful question is:
+
+**What happens when these individual SKU decisions are considered together?**
+
+The project therefore compares the three SKUs side by side and evaluates how their demand, uncertainty, inventory requirements, and costs differ.
+
+### Comparing the SKUs
+
+Each SKU has a different demand profile and therefore receives a different inventory recommendation.
+
+| SKU | Forecast Demand | Optimal Q | Safety Stock | Reorder Point | Estimated Cost Reduction |
+|---|---:|---:|---:|---:|---:|
+| SKU_A | 105.44 | 115 | 34.43 | 561.63 | 18.28% |
+| SKU_B | 129.68 | 142 | 45.61 | 694.01 | 19.63% |
+| SKU_C | 85.79 | 92 | 24.39 | 453.34 | 14.64% |
+
+The comparison highlights an important point: **the same inventory policy does not need to be applied to every SKU.**
+
+For example, SKU_B has both the highest forecast demand and the highest forecast-error variability among the three SKUs. As a result, it receives the highest order quantity, safety stock, and reorder point.
+
+SKU_C has lower expected demand and lower forecast uncertainty, resulting in lower inventory requirements.
+
+### Portfolio-Level Impact
+
+The individual SKU decisions are then combined to understand their overall impact.
+
+| Measure | Portfolio Result |
+|---|---:|
+| Baseline Expected Cost | 289.23 |
+| Optimized Expected Cost | 237.83 |
+| Estimated Savings | 51.39 |
+| Estimated Cost Reduction | **17.77%** |
+
+The optimized policy reduces the estimated portfolio cost from **289.23 to 237.83**, giving an estimated saving of **51.39**, or **17.77%** under the modeled assumptions.
+
+The portfolio analysis therefore shows that the value of optimization does not come from applying one fixed rule to all products. Instead, it comes from using the demand and uncertainty characteristics of each SKU to make more appropriate inventory decisions.
+
+### From Analysis to Decision
+
+At this point, the project has produced several outputs:
+
+- A demand forecast for each SKU
+- A measure of forecast uncertainty
+- Simulated demand scenarios
+- An optimized order quantity
+- Safety-stock requirements
+- Reorder points
+- Estimated cost impact
+- SKU-level priorities
+
+The next challenge is making all of these results easy to understand and use.
+
+Rather than requiring a user to go through notebooks and calculations, the project brings these outputs together into an interactive decision-support dashboard.
