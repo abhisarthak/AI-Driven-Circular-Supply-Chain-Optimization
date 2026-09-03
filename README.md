@@ -206,3 +206,38 @@ Generate Many Possible Demand Outcomes
 Calculate Inventory Cost for Each Outcome
       ↓
 Estimate Expected Cost for Different Order Quantities
+```
+
+## 💰 Inventory Cost Evaluation & Optimization
+
+Once the possible demand outcomes have been generated through simulation, the next problem is to decide:
+
+**How much should we actually order?**
+
+Ordering too little can lead to shortages when demand is higher than expected. Ordering too much can leave excess inventory and increase the cost of holding stock.
+
+The project therefore evaluates different order quantities against the simulated demand scenarios.
+
+For each candidate order quantity, the model estimates the resulting inventory cost by considering the balance between:
+
+- **Excess inventory** when the order quantity is higher than the realized demand.
+- **Shortage** when the realized demand is higher than the available quantity.
+
+The expected cost across the simulated demand outcomes is then used to compare different order quantities.
+
+### Finding the Optimal Order Quantity
+
+Rather than simply using the forecast demand as the order quantity, the project searches across possible order quantities and identifies the quantity associated with the **minimum estimated expected cost**.
+
+This creates the following decision process:
+
+```text
+Simulated Demand Scenarios
+          ↓
+Test Different Order Quantities
+          ↓
+Calculate Cost Under Each Scenario
+          ↓
+Average Cost Across Scenarios
+          ↓
+Select Quantity with Minimum Expected Cost
