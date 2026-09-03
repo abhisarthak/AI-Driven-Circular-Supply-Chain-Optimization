@@ -103,3 +103,51 @@ The data was subsequently divided into training and test portions. The training 
 This separation is important because a model should not only perform well on the data it has already seen. It should also be able to make useful predictions on new observations.
 
 Once the data was prepared and the training and test sets were created, the project moved to the forecasting stage.
+
+## 🤖 Machine Learning Demand Forecasting
+
+Once the data was prepared, the next question was straightforward:
+
+**Can we use the information from the past to estimate future product demand?**
+
+To answer this, a **Random Forest Regressor** was used as the demand forecasting model. The model learns patterns between the prepared input features and the observed demand (`Units Sold`) from the training data.
+
+Random Forest was selected because it can capture non-linear relationships between different factors without requiring a simple linear relationship between the inputs and demand.
+
+The model was trained on the training portion of the dataset and then used to predict demand for the observations kept aside for testing.
+
+### Model Evaluation
+
+The model was evaluated using three commonly used regression metrics:
+
+| Metric | Result |
+|---|---:|
+| MAE | 8.18 |
+| RMSE | 10.65 |
+| R² | **82.56%** |
+
+The evaluation was performed on a **held-out test set containing 420 observations**.
+
+An **MAE of 8.18** means that, on average, the model's predicted demand differed from the observed demand by about 8.18 units.
+
+The **RMSE of 10.65** provides additional information about larger forecasting errors, while the **R² of 82.56%** indicates that the model explains a substantial portion of the variation in demand within the held-out test data.
+
+### Forecasts for the Selected SKUs
+
+After evaluating the model, it was used to generate demand forecasts for the three SKUs considered in the inventory analysis:
+
+| SKU | Forecast Demand |
+|---|---:|
+| SKU_A | 105.44 |
+| SKU_B | 129.68 |
+| SKU_C | 85.79 |
+
+At this point, we have an estimate of **how much demand to expect** for each SKU.
+
+However, a forecast is still only an estimate. Actual demand can be higher or lower than the predicted value.
+
+That raises the next important question:
+
+**How uncertain are these forecasts?**
+
+To answer this, the project moves from prediction to **forecast-error and uncertainty analysis**.
