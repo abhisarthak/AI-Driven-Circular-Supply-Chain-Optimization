@@ -181,3 +181,28 @@ This difference is important for inventory planning. A SKU with more uncertain d
 Therefore, the project does not use the same uncertainty level for every SKU. Instead, the uncertainty observed from the forecasting model is carried forward into the inventory planning stage.
 
 The next step is to understand how this uncertainty can affect inventory costs under different possible demand outcomes.
+
+## 🎯 Monte Carlo Demand Simulation
+
+After measuring the uncertainty in the forecasts, the next question is:
+
+**What could actual demand look like if the forecast does not turn out exactly as expected?**
+
+To answer this, the project uses **Monte Carlo simulation**.
+
+Instead of assuming that future demand will always be exactly equal to the forecast, the simulation generates a large number of possible demand outcomes around the forecast using the observed forecast-error variability.
+
+For each SKU, the forecast acts as the expected demand level, while the standard deviation of the forecast errors represents how much the actual demand can vary around that estimate.
+
+The basic idea is:
+
+```text
+Forecast Demand
+      +
+Forecast Uncertainty
+      ↓
+Generate Many Possible Demand Outcomes
+      ↓
+Calculate Inventory Cost for Each Outcome
+      ↓
+Estimate Expected Cost for Different Order Quantities
