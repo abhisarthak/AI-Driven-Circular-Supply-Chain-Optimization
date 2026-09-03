@@ -241,3 +241,60 @@ Calculate Cost Under Each Scenario
 Average Cost Across Scenarios
           ↓
 Select Quantity with Minimum Expected Cost
+```
+
+## 🛡️ Safety Stock & Reorder Point
+
+Finding the right order quantity answers **“how much should we order?”**, but inventory management also needs to answer another question:
+
+**“When should we place the order?”**
+
+This is where **safety stock** and the **reorder point** come into the picture.
+
+Because demand can vary from the forecast, some additional inventory is kept as a buffer against unexpected demand during the supplier lead time. This additional inventory is called **safety stock**.
+
+In this project, safety stock is based on the uncertainty observed in the model's forecast errors. A **95% service level** is used as the base policy assumption, together with a **5-day lead time**.
+
+The safety stock is therefore driven by:
+
+- Forecast uncertainty
+- Desired service level
+- Lead time
+
+The reorder point then combines the expected demand during the lead time with this safety-stock buffer.
+
+
+::contentReference[oaicite:0]{index=0}
+
+
+### SKU-Level Replenishment Policy
+
+Using the forecast-error variability for each SKU gives the following inventory protection levels:
+
+| SKU | Forecast Demand | Forecast Error Std. | Safety Stock | Reorder Point |
+|---|---:|---:|---:|---:|
+| SKU_A | 105.44 | 9.36 | 34.43 | 561.63 |
+| SKU_B | 129.68 | 12.40 | 45.61 | 694.01 |
+| SKU_C | 85.79 | 6.63 | 24.39 | 453.34 |
+
+The differences between the SKUs are important. SKU_B has the highest forecast uncertainty among the three SKUs and consequently requires the largest safety-stock buffer.
+
+This means the inventory policy is not the same for every product. Each SKU receives a replenishment recommendation based on its own expected demand and uncertainty.
+
+The resulting policy can be viewed as:
+
+```text
+Expected Demand
+      +
+Demand Uncertainty
+      +
+Lead Time
+      ↓
+Safety Stock
+      ↓
+Reorder Point
+      ↓
+Replenishment Decision
+```
+
+
