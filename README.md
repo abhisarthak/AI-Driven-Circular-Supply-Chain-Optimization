@@ -52,3 +52,34 @@ SKU-Level & Portfolio Analysis
 Streamlit Decision Dashboard
 ```
 
+## 🤖 Demand Forecasting
+
+The first stage of the project focuses on forecasting product demand using historical inventory and sales data.
+
+A **Random Forest Regressor** was used to learn the relationship between demand and the available product, inventory, and operational features. The model was then evaluated on a **held-out test set of 420 observations**.
+
+### Model Performance
+
+| Metric | Result |
+|---|---:|
+| MAE | 8.18 |
+| RMSE | 10.65 |
+| R² | **82.56%** |
+
+The model achieved an **R² of 82.56%**, meaning it explained a substantial portion of the variation in demand within the held-out test data.
+
+### SKU-Level Forecasts
+
+The trained model was used to generate demand forecasts for three SKUs:
+
+| SKU | Forecast Demand | Forecast Error Std. |
+|---|---:|---:|
+| SKU_A | 105.44 | 9.36 |
+| SKU_B | 129.68 | 12.40 |
+| SKU_C | 85.79 | 6.63 |
+
+The **forecast error standard deviation** is used as a measure of uncertainty in the demand forecast. This uncertainty is later used in the inventory optimization stage to determine appropriate safety-stock levels.
+
+This creates the link between the predictive and optimization stages:
+
+**Demand Forecast → Forecast Uncertainty → Inventory Decision**
