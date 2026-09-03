@@ -151,3 +151,33 @@ That raises the next important question:
 **How uncertain are these forecasts?**
 
 To answer this, the project moves from prediction to **forecast-error and uncertainty analysis**.
+
+## 🎲 Forecast Error & Uncertainty Analysis
+
+The demand forecasting model gives us an expected demand for each SKU, but in inventory planning, knowing the expected demand is only part of the problem.
+
+In reality, demand does not always follow the forecast. Some days may have higher demand than expected, while others may have lower demand. If we ignore this variation, an order quantity based only on the forecast may leave too little inventory when demand unexpectedly increases.
+
+To capture this uncertainty, the project looks at the **forecast errors** produced by the model.
+
+A forecast error represents the difference between the actual demand and the demand predicted by the model. Instead of treating every forecasting error separately, the project summarizes their variation using the **standard deviation of the forecast errors**.
+
+This gives us a measure of how uncertain the model's demand predictions are for each SKU.
+
+### Forecast Uncertainty by SKU
+
+| SKU | Forecast Demand | Forecast Error Std. |
+|---|---:|---:|
+| SKU_A | 105.44 | 9.36 |
+| SKU_B | 129.68 | 12.40 |
+| SKU_C | 85.79 | 6.63 |
+
+The results show that the three SKUs do not have the same level of forecasting uncertainty.
+
+For example, **SKU_B has the highest forecast-error variability**, meaning its demand predictions show greater variation around the actual demand. SKU_C, on the other hand, has lower forecast-error variability.
+
+This difference is important for inventory planning. A SKU with more uncertain demand generally needs more protection against unexpected demand, while a more predictable SKU may require less.
+
+Therefore, the project does not use the same uncertainty level for every SKU. Instead, the uncertainty observed from the forecasting model is carried forward into the inventory planning stage.
+
+The next step is to understand how this uncertainty can affect inventory costs under different possible demand outcomes.
