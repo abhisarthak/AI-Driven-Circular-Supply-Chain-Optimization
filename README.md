@@ -297,4 +297,76 @@ Reorder Point
 Replenishment Decision
 ```
 
+## 🔬 Sensitivity Analysis
 
+An inventory policy depends not only on the forecast, but also on the assumptions used to make the decision.
+
+For example, a company that considers stockouts very expensive may be willing to hold more inventory. Similarly, a company targeting a higher service level will generally need a larger safety-stock buffer.
+
+To understand how sensitive the inventory decisions are to these assumptions, the project performs **what-if and sensitivity analysis**.
+
+Two important factors are examined:
+
+1. **Shortage Cost**
+2. **Service Level**
+
+### 1. Shortage Cost Sensitivity
+
+Shortage cost represents the penalty associated with not having enough inventory to meet demand.
+
+The model was tested with different shortage-cost assumptions:
+
+| Shortage Cost | Optimal Order Quantity |
+|---:|---:|
+| 5 | 123 |
+| 10 | 127 |
+| 20 | 131 |
+| 30 | 133 |
+| 50 | 135 |
+
+The results show a clear pattern: as the cost of a shortage increases, the recommended order quantity also increases.
+
+This makes intuitive sense. When running out of stock becomes more expensive, the optimization model places greater value on protecting against high-demand outcomes.
+
+In other words:
+
+**Higher Shortage Cost → Greater Protection Against Shortage → Higher Optimal Order Quantity**
+
+---
+
+### 2. Service-Level Sensitivity
+
+The project also examines how the required service level affects safety stock.
+
+| Service Level | Z-value | Safety Stock |
+|---:|---:|---:|
+| 90% | 1.28 | 30.12 |
+| 95% | 1.65 | 38.82 |
+| 97% | 1.88 | 44.23 |
+| 99% | 2.33 | 54.82 |
+
+As the target service level increases, more safety stock is required.
+
+This illustrates an important inventory trade-off:
+
+**Higher Service Level → More Safety Stock → Greater Inventory Protection**
+
+However, greater protection also means holding more inventory. Therefore, the appropriate service level depends on how the business balances inventory cost against the risk of shortages.
+
+---
+
+### What-If Analysis
+
+The same idea is incorporated into the interactive dashboard, where users can change demand and uncertainty assumptions and observe how the resulting **safety stock and reorder point** change.
+
+This allows the model to answer practical questions such as:
+
+> *“What happens to our inventory requirement if expected demand increases?”*
+
+or
+
+> *“What happens if demand becomes more uncertain?”*
+
+The purpose of this analysis is not to identify one universally correct inventory policy. Instead, it shows how inventory decisions respond to changes in the assumptions behind them.
+
+This makes the framework more useful for decision-making because users can understand not only **what the recommended decision is**, but also **why that decision changes when the business situation changes**.
