@@ -52,34 +52,37 @@ SKU-Level & Portfolio Analysis
 Streamlit Decision Dashboard
 ```
 
-## 🤖 Demand Forecasting
+## 📊 Historical Demand Data
 
-The first stage of the project focuses on forecasting product demand using historical inventory and sales data.
+Every inventory decision starts with understanding what has happened in the past.
 
-A **Random Forest Regressor** was used to learn the relationship between demand and the available product, inventory, and operational features. The model was then evaluated on a **held-out test set of 420 observations**.
+The project begins with historical retail data containing information about product sales, inventory levels, orders, pricing, promotions, seasonality, and other operating conditions. The main demand measure used in the project is **Units Sold**, which represents the observed demand for a product.
 
-### Model Performance
+The dataset contains information at the product and store level, allowing demand to be studied in the context of different products, locations, and operating conditions.
 
-| Metric | Result |
-|---|---:|
-| MAE | 8.18 |
-| RMSE | 10.65 |
-| R² | **82.56%** |
+Some of the important variables available in the dataset include:
 
-The model achieved an **R² of 82.56%**, meaning it explained a substantial portion of the variation in demand within the held-out test data.
+| Category | Variables |
+|---|---|
+| Demand | Units Sold |
+| Inventory | Inventory Level |
+| Orders | Units Ordered |
+| Product | Product ID, Category |
+| Location | Store ID, Region |
+| Pricing | Price, Discount, Competitor Pricing |
+| External Conditions | Weather Condition, Holiday/Promotion |
+| Time & Seasonality | Date, Seasonality |
 
-### SKU-Level Forecasts
+Rather than looking at demand as an isolated number, the project uses these surrounding factors to understand the conditions under which demand changes.
 
-The trained model was used to generate demand forecasts for three SKUs:
+For the final inventory decision analysis, the project focuses on three representative SKUs:
 
-| SKU | Forecast Demand | Forecast Error Std. |
-|---|---:|---:|
-| SKU_A | 105.44 | 9.36 |
-| SKU_B | 129.68 | 12.40 |
-| SKU_C | 85.79 | 6.63 |
+- `SKU_A`
+- `SKU_B`
+- `SKU_C`
 
-The **forecast error standard deviation** is used as a measure of uncertainty in the demand forecast. This uncertainty is later used in the inventory optimization stage to determine appropriate safety-stock levels.
+The historical data is therefore the starting point of the entire analysis. However, raw historical data cannot be directly given to a forecasting model. It first needs to be cleaned, organized, and converted into useful model features.
 
-This creates the link between the predictive and optimization stages:
+This leads to the next stage of the project:
 
-**Demand Forecast → Forecast Uncertainty → Inventory Decision**
+**Historical Data → Data Preparation & Feature Engineering → Demand Forecasting**
