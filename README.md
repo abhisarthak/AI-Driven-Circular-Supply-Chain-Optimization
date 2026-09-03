@@ -428,3 +428,103 @@ At this point, the project has produced several outputs:
 The next challenge is making all of these results easy to understand and use.
 
 Rather than requiring a user to go through notebooks and calculations, the project brings these outputs together into an interactive decision-support dashboard.
+
+## 📊 Interactive Streamlit Decision Dashboard
+
+The analysis produces several different outputs—forecasts, uncertainty measures, order quantities, safety stock, reorder points, costs, and sensitivity results.
+
+Looking at these results across separate notebooks or tables can make it difficult to answer a simple business question:
+
+**“What should I do for this SKU?”**
+
+To make the analysis easier to use, the project brings the main outputs together into an interactive **Streamlit decision dashboard**.
+
+The dashboard is designed to move from model results to practical inventory decisions without requiring the user to go through the underlying calculations.
+
+### What the Dashboard Shows
+
+The dashboard provides a portfolio-level view as well as detailed SKU-level information.
+
+#### 🤖 Forecast Model Performance
+
+The dashboard displays the performance of the demand forecasting model using:
+
+- MAE
+- RMSE
+- R²
+- Number of held-out test observations
+
+This gives the user context about the quality of the demand forecasts before using them for inventory decisions.
+
+#### 📦 Portfolio Overview
+
+The portfolio view summarizes the overall impact of the optimized inventory policy, including:
+
+- Baseline expected cost
+- Optimized expected cost
+- Estimated savings
+- Overall estimated cost reduction
+
+#### 🎯 SKU-Level Decision
+
+Users can select an individual SKU and immediately see its recommended inventory policy, including:
+
+- Forecast demand
+- Optimal order quantity
+- Safety stock
+- Reorder point
+- Baseline cost
+- Optimized cost
+- Estimated cost reduction
+
+This allows the user to move from a portfolio-level view to a specific product decision.
+
+#### 💡 What-If Analysis
+
+The dashboard also includes an interactive scenario analysis.
+
+Users can change demand and uncertainty assumptions and observe how those changes affect:
+
+- Safety stock
+- Reorder point
+- Demand
+- Forecast uncertainty
+
+This helps users understand how the recommended inventory policy changes when the underlying conditions change.
+
+#### 📊 SKU Comparison
+
+The dashboard provides visual comparisons across SKUs, including:
+
+- Safety stock requirements
+- Reorder points
+- Baseline vs. optimized costs
+- Cost reductions
+
+This makes it easier to identify which products require greater inventory protection and where the optimization has the largest estimated impact.
+
+#### 🎯 SKU Priority Assessment
+
+The dashboard also provides a simple priority view based on inventory protection requirements.
+
+This helps highlight SKUs that require greater attention because of their higher safety-stock or reorder-point requirements.
+
+### From Model to Decision
+
+The dashboard brings the entire project together:
+
+```text
+Historical Data
+      ↓
+Demand Forecast
+      ↓
+Forecast Uncertainty
+      ↓
+Inventory Optimization
+      ↓
+Safety Stock & Reorder Point
+      ↓
+Cost & Sensitivity Analysis
+      ↓
+Interactive Decision Dashboard
+```
