@@ -83,6 +83,23 @@ For the final inventory decision analysis, the project focuses on three represen
 
 The historical data is therefore the starting point of the entire analysis. However, raw historical data cannot be directly given to a forecasting model. It first needs to be cleaned, organized, and converted into useful model features.
 
-This leads to the next stage of the project:
+## 🧹 Data Preparation & Feature Engineering
 
-**Historical Data → Data Preparation & Feature Engineering → Demand Forecasting**
+The historical dataset gives us the information needed for forecasting, but raw data is not immediately ready for a machine learning model.
+
+Before building the forecasting model, the data was prepared so that the model could learn meaningful relationships between the available information and product demand.
+
+The first step was to organize the data around the variables that can help explain changes in **Units Sold**. Product, inventory, ordering, pricing, promotional, seasonal, and other operating information were considered as potential inputs to the forecasting process.
+
+Categorical information such as product, category, region, and other non-numeric variables needs to be represented in a form that a machine learning model can work with. Similarly, the date-related information needs to be handled appropriately so that useful time-related patterns can be captured.
+
+The prepared dataset was then separated into:
+
+- **Input features (X)** — information used by the model to predict demand.
+- **Target variable (y)** — `Units Sold`, representing the demand that the model needs to forecast.
+
+The data was subsequently divided into training and test portions. The training data was used to learn the relationship between the input variables and demand, while the held-out test data was kept separate to evaluate how well the model performs on observations it had not seen during training.
+
+This separation is important because a model should not only perform well on the data it has already seen. It should also be able to make useful predictions on new observations.
+
+Once the data was prepared and the training and test sets were created, the project moved to the forecasting stage.
